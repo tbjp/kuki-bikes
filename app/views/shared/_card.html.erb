@@ -1,0 +1,10 @@
+<%= link_to bike_path(bike) do %>
+  <div class="card my-2 flex-row">
+    <%= cl_image_tag(bike.photo.key, width: 300, height: 200, crop: :scale) %>
+    <div class="p-2">
+      <h2><%= bike.brand %> <%= bike.model%> <%= bike.year %></h2>
+      <h3><%= bike.location %></h3>
+      <p>¥<%= bike.price_per_day %>/day</p>
+    </div>
+  </div>
+<% end %>

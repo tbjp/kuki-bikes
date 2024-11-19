@@ -16,9 +16,12 @@
   </div>
   <div class="col-4 pt-3">
     <%= simple_form_for @booking do |b| %>
-      <%= b.input :start_date %>
-      <%= b.input :end_date %>
+      <%= b.input :start_date,  as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+      <%= b.input :end_date, as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
       <%= b.submit 'Book', class: 'btn btn-primary mt-2' %>
     <% end %>
   </div>
 </div>
+<%#= form.text_field :date, class: "datepicker" %>

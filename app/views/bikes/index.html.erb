@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="w-50 my-2">
+    <% @bikes.each do |bike| %>
+      <%= render 'shared/card', bike: bike %>
+    <% end %>
+  </div>
+</div>
