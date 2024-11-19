@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :bikes
   has_many :bookings
   has_many :bookings_as_owner, through: :bikes, source: :bookings
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
 end
