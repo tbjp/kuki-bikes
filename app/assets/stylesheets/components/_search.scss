@@ -1,0 +1,30 @@
+.search-form-control {
+  position: relative;
+}
+
+.form-control {
+  background-color: #ffffff;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+}
+
+.search-form-control .form-control {
+  height: 3.5rem;
+  // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  // border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border-left: 1px solid #C7C7C7;
+  outline: none !important;
+  // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 50px;
+}
