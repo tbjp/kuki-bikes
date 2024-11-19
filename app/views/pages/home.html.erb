@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <% @bikes.each do |bike| %>
+    <div class="card">
+      <%= cl_image_tag(bike.photo.key) %>
+    </div>
+  <% end %>
+</div>
