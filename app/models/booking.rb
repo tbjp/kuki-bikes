@@ -6,4 +6,6 @@ class Booking < ApplicationRecord
   validates :bartek, presence: false
   validates :start_date, presence: true
   validates :end_date, presence: true
+
+  enum status: { pending: "Pending", confirmed: "Confirmed", declined: "Declined" }, _prefix: :status
 end
