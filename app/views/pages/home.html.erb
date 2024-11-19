@@ -1,7 +1,7 @@
-<div class="container">
-  <% @bikes.each do |bike| %>
-    <div class="card">
-      <%= cl_image_tag(bike.photo.key) %>
-    </div>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dzmlzpvcj/image/upload/v1731989959/kuki-bikes/a0jsfvnzntryyfgsdkcm.jpg);">
+  <div class="container">
+    <%= render 'shared/search' %>
+  </div>
 </div>
+<h1>Skip the rental counter</h1>
+<p>Rent just about any motorcycle, just about anywhere</p>
