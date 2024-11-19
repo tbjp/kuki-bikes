@@ -1,0 +1,11 @@
+<div style="height: 800px;">
+  <% if @bike.photo.attached? %>
+    <%= cl_image_tag @bike.photo.key, crop: :fill, class: "w-100 h-100 rounded-3" %>
+  <% else %>
+    <div class="bg-grey"></div>
+  <% end %>
+</div>
+<h1><%= "#{@bike.brand} #{@bike.model} #{@bike.year}" %></h1>
+<h4><%= @bike.location %> - ¥<%= @bike.price_per_day %> per day</h4>
+<h5>Description</h5>
+<%= @bike.description %>
