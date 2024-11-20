@@ -1,5 +1,10 @@
-<div class="w-50 my-2">
+<div>
+  <div>
+    <h1>My bookings</h1>
+  </div>
+  <div class="my-2 w-75 position-top">
     <% @bookings.each do |booking| %>
       <%= render 'booking_card', booking: booking %>
     <% end %>
+  </div>
 </div>
