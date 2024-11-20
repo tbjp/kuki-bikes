@@ -15,8 +15,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(id: :desc)
   end
 
   private
