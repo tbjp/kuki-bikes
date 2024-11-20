@@ -4,8 +4,8 @@
     <div class="p-3">
       <h2><%= booking.bike.brand %> <%= booking.bike.model %> <%= booking.bike.year %></h2>
       <h5><%= booking.bike.location %></h5>
-      <p class="mb-1"><%= booking.status.humanize %></p>
-      <span class="fw-semibold">¥<%= booking.total_price %></span>
+      <p class="mb-1 <%= booking.status %>"><i class="fa-solid fa-horse"></i> <%= booking.status.humanize %></p>
+      <span class="fw-semibold"><%= number_to_currency(booking.total_price, locale: :ja, precision: 0, unit: '¥') %></span>
       <p><%= booking.start_date %> to <%= booking.end_date %></p>
     </div>
   </div>

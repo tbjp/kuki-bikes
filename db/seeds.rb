@@ -20,17 +20,14 @@ Bike.destroy_all
 User.destroy_all
 
 puts "doing fun shit..."
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
-puts 'TOBY'
+puts 'BART'
+puts 'BART'
+puts 'BART'
+puts 'BART'
+puts 'BART'
+puts 'BART'
+puts 'working on master branch'
+
 puts "creating users..."
 
 user1 = User.new(email: "b.mikorski@gmail.com", first_name: "Bartek", last_name: "Mikorski", phone_number: "+48662402542")
@@ -73,7 +70,7 @@ bike5.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike5.save
 
 file = URI.parse("https://res.cloudinary.com/dzmlzpvcj/image/upload/v1731989297/kuki-bikes/ovydzucj8nncgqjpic5n.jpg").open
-bike6 = Bike.new(brand: "Honda", model: "CF125", year: 2022, location: "Tokyo", description: "Best commuter", price_per_day: 3000, user: user3)
+bike6 = Bike.new(brand: "Honda", model: "CP125", year: 2022, location: "Tokyo", description: "Best commuter", price_per_day: 3000, user: user3)
 bike6.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike6.save
 
@@ -82,7 +79,7 @@ bike7 = Bike.new(brand: "Yamaha", model: "MT-07", year: 20015, location: "Wrocla
 bike7.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike7.save
 
-file = URI.parse("https://res.cloudinary.com/dzmlzpvcj/image/upload/v1731989304/kuki-bikes/w4rcqnrhsfhucdzyarnr.jpg").open
+file = URI.parse("https://res.cloudinary.com/dzmlzpvcj/image/upload/v1731989303/kuki-bikes/gzthi7xadabw7u7ltho4.jpg").open
 bike8 = Bike.new(brand: "Honda", model: "Hornet", year: 2024, location: "Poznan", description: "Baseline naked bike from Honda", price_per_day: 9000, user: user2)
 bike8.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike8.save
@@ -107,25 +104,25 @@ puts 'TOBY'
 booking = Booking.new(start_date: Date.today, end_date: Date.today + 2, bike: bike2, user: user1, total_price: 12000, status: 0)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 5, bike: bike3, user: user2, total_price: 30000, status: 1)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 5, bike: bike3, user: user2, total_price: 30000, status: 0)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 11, bike: bike1, user: user3, total_price: 9999, status: 2)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 11, bike: bike1, user: user3, total_price: 9999, status: 0)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 2, bike: bike4, user: user1, total_price: 12000, status: 0)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 2, bike: bike4, user: user1, total_price: 12000, status: 1)
 booking.save
 
 booking = Booking.new(start_date: Date.today, end_date: Date.today + 5, bike: bike5, user: user2, total_price: 30000, status: 1)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 11235871, bike: bike6, user: user3, total_price: 999999, status: 2)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 11235871, bike: bike6, user: user3, total_price: 999999, status: 1)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 2, bike: bike7, user: user1, total_price: 12000, status: 0)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 2, bike: bike7, user: user1, total_price: 12000, status: 2)
 booking.save
 
-booking = Booking.new(start_date: Date.today, end_date: Date.today + 5, bike: bike8, user: user2, total_price: 30000, status: 1)
+booking = Booking.new(start_date: Date.today, end_date: Date.today + 5, bike: bike8, user: user2, total_price: 30000, status: 2)
 booking.save
 
 booking = Booking.new(start_date: Date.today, end_date: Date.today + 11235871, bike: bike9, user: user3, total_price: 999999, status: 2)
