@@ -1,0 +1,14 @@
+<%# <%= link_to bike_path(@bike) do %>
+  <div class="card my-2 flex-row">
+    <%= cl_image_tag(booking.bike.photo.key, width: 300, height: 200, crop: :scale) %>
+    <div class="p-2">
+      <h2><%= booking.bike.brand %> <%= booking.bike.model%> <%= booking.bike.year %></h2>
+      <h3><%= booking.status%>
+      <h3><%= booking.bike.location %></h3>
+      <p>¥<%= booking.total_price %></p>
+      <p><%= booking.start_date %></p>
+      <p><%= booking.end_date %></p>
+
+    </div>
+  </div>
+<%# <% end %>

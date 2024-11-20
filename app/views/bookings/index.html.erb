@@ -1,0 +1,5 @@
+<div class="w-50 my-2">
+    <% @bookings.each do |booking| %>
+      <%= render 'booking_card', booking: booking %>
+    <% end %>
+</div>
