@@ -4,4 +4,10 @@ class PagesController < ApplicationController
   def home
     @bikes = Bike.all
   end
+
+  private
+
+  def bike_params
+    params.require(:bike).permit(:location)
+  end
 end

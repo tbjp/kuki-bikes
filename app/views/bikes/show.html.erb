@@ -16,6 +16,7 @@
   </div>
   <div data-controller="booking-price" data-booking-price-price-value="<%= @bike.price_per_day %>" class="col-4 pt-3">
     <%= simple_form_for @booking do |b| %>
+      <%= b.input :bike_id, as: :hidden, input_html: { value: @bike.id } %>
       <%= b.input :start_date,  as: :string,
             input_html: { data: { controller: "datepicker",
             booking_price_target: 'start_date', action: 'change->booking-price#update' }, value: Date.today  } %>
