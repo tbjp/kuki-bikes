@@ -1,9 +1,11 @@
 .search-form-control {
   position: relative;
+  margin-top: 16px;
 }
 
 .form-control {
   background-color: #ffffff;
+
 }
 
 .search-form-control .btn {
@@ -18,11 +20,11 @@
   // border: 1px solid #E7E7E7;
 }
 
-.search-form-control .form-control:focus {
-  border-left: 1px solid #C7C7C7;
-  outline: none !important;
-  // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+// .search-form-control .form-control:focus {
+//   // border-left: 1px solid #C7C7C7;
+//   outline: none !important;
+//   // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+// }
 
 .bart {
   background-color: #ffffff;
