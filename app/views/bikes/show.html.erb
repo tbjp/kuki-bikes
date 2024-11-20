@@ -9,19 +9,24 @@
     </div>
     <div class="p-3">
       <h1><%= "#{@bike.brand} #{@bike.model} #{@bike.year}" %></h1>
-      <h4><%= @bike.location %> - ¥<%= @bike.price_per_day %> per day</h4>
+      <h4><%= @bike.location %> - <%= number_to_currency(@bike.price_per_day, locale: :ja, precision: 0, unit: '¥') %> per day</h4>
       <h5>Description</h5>
       <%= @bike.description %>
     </div>
   </div>
-  <div class="col-4 pt-3">
+  <div data-controller="booking-price" data-booking-price-price-value="<%= @bike.price_per_day %>" class="col-4 pt-3">
     <%= simple_form_for @booking do |b| %>
       <%= b.input :start_date,  as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker",
+            booking_price_target: 'start_date', action: 'change->booking-price#update' }, value: Date.today  } %>
       <%= b.input :end_date, as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker",
+             booking_price_target: 'end_date', action: 'change->booking-price#update' }, value: Date.today + 1  } %>
       <%= b.submit 'Book', class: 'btn btn-primary mt-2' %>
     <% end %>
+    <div class='mt-3'>
+      <p class='fs-5 mb-1 text-secondary' data-booking-price-target='info'></p>
+      <p class='fs-2 fw-bold' data-booking-price-target='price'></p>
+    </div>
   </div>
 </div>
-<%#= form.text_field :date, class: "datepicker" %>
