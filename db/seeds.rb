@@ -75,7 +75,7 @@ bike6.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike6.save
 
 file = URI.parse("https://res.cloudinary.com/dzmlzpvcj/image/upload/v1731989302/kuki-bikes/ijrdmbmxxem7p73lcwsw.jpg").open
-bike7 = Bike.new(brand: "Yamaha", model: "MT-07", year: 20015, location: "Wroclaw", description: "Best beginner bike", price_per_day: 7000, user: user1)
+bike7 = Bike.new(brand: "Yamaha", model: "MT-07", year: 2015, location: "Wroclaw", description: "Best beginner bike", price_per_day: 7000, user: user1)
 bike7.photo.attach(io: file, filename: "triumph.png", content_type: "image/png")
 bike7.save
 
