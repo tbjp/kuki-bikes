@@ -1,8 +1,8 @@
-<div>
+<div class="container">
   <div>
     <h1>My bookings</h1>
   </div>
-  <div class="my-2 w-75 position-top">
+  <div class="w-75">
     <% @bookings.each do |booking| %>
       <%= render 'booking_card', booking: booking %>
     <% end %>
