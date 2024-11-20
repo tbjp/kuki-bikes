@@ -15,3 +15,9 @@
 a {
   text-decoration: none;
 }
+
+.sticky-map {
+  position: sticky;
+  top: 0; /* Adjust this to control where the map sticks (e.g., at the top of the viewport) */
+  z-index: 1000; /* Ensures the map stays above other elements */
+}
