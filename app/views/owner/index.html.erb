@@ -4,7 +4,7 @@
   </div>
   <div class="w-75">
     <% @owners_bookings.each do |owners_booking| %>
-      <%= render 'booking_card', :bookings_as_owner: bookings_as_owner %>
+      <%= render 'bookings/booking_card', :bookings_as_owner: bookings_as_owner %>
     <% end %>
   </div>
 
@@ -13,7 +13,7 @@
   </div>
   <div class="w-25">
     <% @bikes.each do |bike| %>
-      <%= render 'card', bike: bike %>
+      <%= render 'bikes/card', bike: bike %>
     <% end %>
   </div>
 </div>
