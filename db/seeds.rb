@@ -30,16 +30,22 @@ puts 'working on master branch'
 
 puts "creating users..."
 
+file1 = URI.parse("https://d26jy9fbi4q9wx.cloudfront.net/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMnh2QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b7712879057fd01ec0ef07b85086bf93883ec1b7/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNJYVFISWFRSElld1k2Q1dOeWIzQTZEbUYwZEdWdWRHbHZiZz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--23cdbdf9871e44adeb4d843a03b0793a5f08394b/profilowe.jpeg").open
 user1 = User.new(email: "b.mikorski@gmail.com", first_name: "Bartek", last_name: "Mikorski", phone_number: "+48662402542")
 user1.password = 'secret'
+user1.avatar.attach(io: file1, filename: "bartek.png", content_type: "image/png")
 user1.save
 
+file2 = URI.parse("https://avatars.githubusercontent.com/u/174467341?v=4").open
 user2 = User.new(email: "jarodmiz2018@gmail.com", first_name: "Jarod", last_name: "Mizgalski", phone_number: "+48662402542")
 user2.password = 'secret'
+user2.avatar.attach(io: file2, filename: "jarod.png", content_type: "image/png")
 user2.save
 
+file3 = URI.parse("https://avatars.githubusercontent.com/u/96312680?v=4").open
 user3 = User.new(email: "tobypalethorpe@gmail.com", first_name: "Toby", last_name: "Palethorpe", phone_number: "+48662402542")
 user3.password = 'secret'
+user3.avatar.attach(io: file3, filename: "toby.png", content_type: "image/png")
 user3.save
 
 puts "creating bikes..."
