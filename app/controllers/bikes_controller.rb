@@ -22,8 +22,26 @@ class BikesController < ApplicationController
     @booking = Booking.new
   end
 
+
+  def new
+    @bike = Bike.new
+  end
+  
+  def create
+    @bike = Bike.new(bike_params)
+    @bike.user = current_user
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else
+      render :new, status: :unprocessable_entity
+    end
+
   private
 
+  def bike_params
+    params.require(:bike).permit(:brand, :model, :year, :location, :description, :price_per_day, :photo)
+  end
+    
   def search_params
     params.require(:search).permit(:start_date, :end_date, :location)
   end

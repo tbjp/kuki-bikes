@@ -14,17 +14,18 @@
   right: 8px;
 }
 
-.search-form-control .form-control {
+.no-border {
   height: 3.5rem;
-  // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  // border: 1px solid #E7E7E7;
+  border: white;
+  outline: none;
 }
 
-// .search-form-control .form-control:focus {
-//   // border-left: 1px solid #C7C7C7;
-//   outline: none !important;
-//   // box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-// }
+.no-border:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+}
 
 .bart {
   background-color: #ffffff;
