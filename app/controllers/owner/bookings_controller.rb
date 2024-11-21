@@ -6,8 +6,13 @@ class Owner::BookingsController < ApplicationController
   end
 
   def update
-    @owner_bookings = current_user.bookings_as_owner.find(params[:id])
-    @owner_bookings.update(owner_bookings_params)
+    @booking = Booking.find(params[:id])
+    @booking.update(owner_bookings_params)
+    redirect_to owner_bookings_path
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
   end
 
   private
