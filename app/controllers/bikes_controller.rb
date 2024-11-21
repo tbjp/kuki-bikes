@@ -2,8 +2,12 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    raise
-    @bikes = Bike.all
+    @search = search_params
+    if @search[:location].empty?
+      @bikes = Bike.all
+    else
+      @bikes = Bike.location_search(@search[:location])
+    end
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,
@@ -23,5 +27,4 @@ class BikesController < ApplicationController
   def search_params
     params.require(:search).permit(:start_date, :end_date, :location)
   end
-
 end

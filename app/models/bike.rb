@@ -13,7 +13,7 @@ class Bike < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   pg_search_scope :location_search,
-    against: [ :location ],
+    against: :location,
     using: {
       tsearch: { prefix: true } # Doesn't have to match whole query
     }
