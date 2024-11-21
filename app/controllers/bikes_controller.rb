@@ -2,9 +2,10 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+    @msg_date = "for any date"
+    @msg_location = 'anywhere'
     if params[:search].nil? || params[:search].values.all?(&:blank?)
       @bikes = Bike.all
-      puts "get all bikes"
     else
       @search = search_params
 
@@ -12,19 +13,24 @@ class BikesController < ApplicationController
         @bikes = Bike.all
       else
         @bikes = Bike.location_search(@search[:location])
+        @msg_location = "in #{@search[:location]}"
       end
 
       if @search[:start_date].blank? && @search[:end_date].blank?
         available_bikes = Bike.all
       else
-      @search[:start_date] = Date.today if @search[:start_date].blank?
-      @search[:end_date] = Date.today + 720 if @search[:end_date].blank?
+        @search[:start_date] = Date.today if @search[:start_date].blank?
+        @search[:end_date] = Date.today + 720 if @search[:end_date].blank?
+        sd = Date.parse(@search[:start_date]).strftime("%d %b")
+        ed = Date.parse(@search[:end_date]).strftime("%d %b %Y")
+        @msg_date = "from #{sd} to #{ed}"
 
-      available_bikes = Bike.left_joins(:bookings).where(
-        'bookings.id IS NULL OR bookings.start_date > ? OR bookings.end_date < ?',
-        @search[:end_date],
-        @search[:start_date]
-        )
+
+        available_bikes = Bike.left_joins(:bookings).where(
+          'bookings.id IS NULL OR bookings.start_date > ? OR bookings.end_date < ?',
+          @search[:end_date],
+          @search[:start_date]
+          )
       end
 
       @bikes &= available_bikes
