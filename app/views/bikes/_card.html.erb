@@ -1,10 +1,15 @@
 <%= link_to bike_path(bike) do %>
-  <div class="card my-2 flex-row bg-white border-0 rounded-4 mb-4 shadow-sm">
+  <div class="card my-2 flex-row bg-white border-0 rounded-4 mb-4 shadow-sm justify-content-between">
     <%= cl_image_tag(bike.photo.key, width: 300, height: 200, crop: :fill, class: "rounded-start-4 ") %>
-    <div class="p-3">
+    <div class="col p-3">
       <h2><%= bike.brand %> <%= bike.model%> <%= bike.year %></h2>
       <h5 class="text-muted"><%= bike.location %></h5>
       <span class="fw-semibold">¥<%= bike.price_per_day %></span> per day
+    </div>
+    <div class="flex-col text-end pe-4 my-3">
+      <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
+      <h5>owner:</h5>
+      <p>JAROD</p>
     </div>
   </div>
 <% end %>
