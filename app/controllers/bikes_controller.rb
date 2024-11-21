@@ -2,14 +2,22 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @bikes = Bike.all
-    unless params[:search].nil?
+    if params[:search].nil? || params[:search].values.all?(&:blank?)
+      @bikes = Bike.all
+    else
       @search = search_params
-      unless @search[:location].empty?
-        @bikes = Bike.location_search(@search[:location])
-      end
+      @bikes = Bike.location_search(@search[:location]) unless @search[:location].empty?
+
+      available_bikes = Bike.left_joins(:bookings).where(
+        'bookings.id IS NULL OR bookings.start_date > ? OR bookings.end_date < ?',
+        @search[:end_date],
+        @search[:start_date]
+        )
+
+      @bikes &= available_bikes
     end
-    @markers = @bikes.geocoded.map do |bike|
+
+    @markers = @bikes.map do |bike|
       {
         lat: bike.latitude,
         lng: bike.longitude,
