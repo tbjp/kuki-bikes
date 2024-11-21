@@ -1,7 +1,11 @@
 <div class="container-fluid d-flex flex-row">
   <div class="w-55 col-8 m-3">
-    <% @bikes.each do |bike| %>
-      <%= render 'card', bike: bike %>
+    <% if @bikes.empty? %>
+      <p class="fs-3 pt-1">No bikes found in <b><%= @search[:location] %></b></p>
+    <% else %>
+      <% @bikes.each do |bike| %>
+        <%= render 'card', bike: bike %>
+      <% end %>
     <% end %>
   </div>
   <div style="width: 100%; height: 85vh;"
