@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="my-3">
+    <h1>booking requests</h1>
+  </div>
+  <div class="w-75">
+    <% @owners_bookings.each do |owners_booking| %>
+      <%= render 'booking_card', :bookings_as_owner: bookings_as_owner %>
+    <% end %>
+  </div>
+
+  <div class="my-3">
+    <h1>your bikes</h1>
+  </div>
+  <div class="w-25">
+    <% @bikes.each do |bike| %>
+      <%= render 'card', bike: bike %>
+    <% end %>
+  </div>
+</div>
