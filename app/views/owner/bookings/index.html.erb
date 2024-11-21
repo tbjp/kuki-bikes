@@ -3,8 +3,8 @@
     <h1>booking requests</h1>
   </div>
   <div class="w-75">
-    <% @owners_bookings.each do |owners_booking| %>
-      <%= render 'bookings/booking_card', :bookings_as_owner: bookings_as_owner %>
+    <% @owner_bookings.each do |booking_as_owner| %>
+      <%= render 'bookings/booking_card', booking: booking_as_owner %>
     <% end %>
   </div>
 
