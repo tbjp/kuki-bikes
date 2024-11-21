@@ -37,6 +37,7 @@ class BikesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
   private
 
   def bike_params
