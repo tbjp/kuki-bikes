@@ -7,9 +7,13 @@
       <%= render 'bookings/booking_card', booking: booking_as_owner %>
     <% end %>
   </div>
-
   <div class="my-3">
-    <h1>your bikes</h1>
+    <span>
+      <h1>your bikes</h1>
+      <%= link_to new_bike_path do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </span>
   </div>
   <div class="w-25">
     <% @bikes.each do |bike| %>
