@@ -17,7 +17,7 @@
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar.attached? %>
-                <%= cl_image_tag(current_user.avatar.key, class: "avatar-large mb-2") %>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar") %>
               <% else %>
                 <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/v1732101046/image-of-the-icon-design-for-a-motorbike-helmet-png_ufvgcr.webp", class: "avatar-large mb-2", alt: "avatar-large" %>
               <% end %>
