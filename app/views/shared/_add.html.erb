@@ -14,7 +14,7 @@
         <%= f.input :location, label: false, placeholder: 'LOCATION', input_html: { class: "form-control no-border string required" } %>
       </div>
       <div>
-        <%= f.input :description, as: :string, label: false, placeholder: 'DESCRIPTION', input_html: { class: "form-control no-border string required" } %>
+        <%#= f.input :description, as: :string, label: false, placeholder: 'DESCRIPTION', input_html: { class: "form-control no-border string required" } %>
       </div>
       <div>
         <%= f.input :price_per_day, label: false, placeholder: 'PRICE/DAY', input_html: { class: "form-control no-border string required" } %>
@@ -27,6 +27,11 @@
           <i class="fa-solid fa-plus"></i>
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="m-3 container bart d-flex justify-content-center px-5 w-75">
+      <%= f.input :description, as: :text, label: false, placeholder: 'DESCRIPTION', input_html: { class: "form-control no-border string required bike-description" }, wrapper_html: { class: 'w-100 h-100 py-3'} %>
     </div>
   </div>
 <% end %>
