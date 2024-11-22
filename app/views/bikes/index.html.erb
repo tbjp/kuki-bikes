@@ -1,8 +1,10 @@
 <div class="container-fluid d-flex flex-row">
   <div class="w-55 col-8 m-3">
-    <div class="fs-4">Bikes available <%= @msg_location %> <%= @msg_date %></div>
+    <div class="fs-4">
+      <h2>Bikes available <%= @msg_location %> <%= @msg_date %></h2>
+    </div>
     <% if @bikes.empty? %>
-      <p class="fs-3 pt-1">No bikes found for your search</p>
+      <h2 class="fs-3 pt-1">No bikes found for your search</h2>
     <% else %>
       <% @bikes.each do |bike| %>
         <%= render 'card', bike: bike %>
