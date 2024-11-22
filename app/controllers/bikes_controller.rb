@@ -22,9 +22,9 @@ class BikesController < ApplicationController
         @start_date = @search[:start_date]
         @end_date = @search[:end_date]
         @start_date = Date.today if @search[:start_date].blank?
-        @end_date = Date.today + 720 if @search[:end_date].blank?
-        sd = Date.parse(@start_date).strftime("%d %b")
-        ed = Date.parse(@end_date).strftime("%d %b %Y")
+        @end_date = Date.parse(@start_date.to_s) + 14 if @search[:end_date].blank?
+        sd = Date.parse(@start_date.to_s).strftime("%d %b %Y")
+        ed = Date.parse(@end_date.to_s).strftime("%d %b %Y")
         @msg_date = "from #{sd} to #{ed}"
 
 
