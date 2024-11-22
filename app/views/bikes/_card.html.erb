@@ -8,8 +8,8 @@
     <div class="d-flex justify-content-between w-100">
       <div class="p-3">
         <h3><%= bike.brand %> <%= bike.model%> <%= bike.year %></h3>
-        <h5 class="text-muted"><%= bike.location %></h5>
-        <span class="fw-semibold">¥<%= bike.price_per_day %></span> per day
+        <div class="text-muted fs-5 pb-1 fw-semibold"><%= bike.location %></div>
+        <span class="fw-semibold fs-5"><%= number_to_currency(bike.price_per_day, locale: :ja, precision: 0, unit: '¥') %></span> per day
       </div>
       <div class="text-start p-3 text-center">
         <% if bike.user.avatar.attached? %>
@@ -17,8 +17,8 @@
         <% else %>
           <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
         <% end %>
+        <div class="text-secondary">owned by</div>
         <div class="fs-5 text-dark"><%= bike.user.first_name %></div>
-        <div class="text-secondary">Owner</div>
       </div>
     </div>
   </div>
