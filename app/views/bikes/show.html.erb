@@ -2,14 +2,27 @@
   <div class="col-7 bg-white rounded-3">
     <div style="height: 400px; object-position: center;" class="">
       <% if @bike.photo.attached? %>
-        <%= cl_image_tag @bike.photo.key, crop: :fill, class: "w-100 h-100 rounded-3 object-fit-cover", style: "object-position: center;" %>
+        <%= cl_image_tag @bike.photo.key, crop: :fill, class: "w-100 h-100 rounded-top-4 object-fit-cover", style: "object-position: center;" %>
       <% else %>
-        <div class="bg-secondary w-100 h-100 rounded-3"></div>
+        <div class="bg-secondary w-100 h-100 rounded-top-4"></div>
       <% end %>
     </div>
     <div class="p-3">
-      <h1><%= "#{@bike.brand} #{@bike.model} #{@bike.year}" %></h1>
-      <h4><%= @bike.location %> - <%= number_to_currency(@bike.price_per_day, locale: :ja, precision: 0, unit: '¥') %> per day</h4>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h1><%= "#{@bike.brand} #{@bike.model} #{@bike.year}" %></h1>
+          <h4><%= @bike.location %> - <%= number_to_currency(@bike.price_per_day, locale: :ja, precision: 0, unit: '¥') %> per day</h4>
+        </div>
+        <div class="text-start p-1 text-center">
+          <% if @bike.user.avatar.attached? %>
+            <%= cl_image_tag(@bike.user.avatar.key, class: "avatar-large mb-2") %>
+          <% else %>
+            <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
+          <% end %>
+          <div class="fs-4 text-dark"><%= @bike.user.first_name %></div>
+          <div class="text-secondary">Owner</div>
+        </div>
+      </div>
       <h5>Description</h5>
       <%= @bike.description %>
     </div>
@@ -24,9 +37,9 @@
             input_html: { data: { controller: "datepicker",
              booking_price_target: 'end_date', action: 'change->booking-price#update' }, value: @end_date, class: "form-control no-border rounded-pill"  } %>
       <% if @bike.user != @user %>
-        <%= b.submit 'Book', class: 'btn btn-primary mt-2' %>
+        <%= b.submit 'Book', class: 'btn btn-dark mt-2 fs-4 py-2 rounded-pill w-100 shadow-sm' %>
       <% else %>
-        <%= b.submit 'Book', disabled: true, hint: 'You are the owner', class: 'btn btn-primary mt-2' %>
+        <%= b.submit 'Book', disabled: true, hint: 'You are the owner', class: 'btn btn-secondary mt-2 fs-4 py-2 rounded-pill w-100' %>
       <% end %>
     <% end %>
     <div class='mt-3'>

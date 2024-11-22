@@ -11,14 +11,14 @@
         <h5 class="text-muted"><%= bike.location %></h5>
         <span class="fw-semibold">¥<%= bike.price_per_day %></span> per day
       </div>
-      <div class="flex-col text-end pe-4 my-3">
+      <div class="text-start p-3 text-center">
         <% if bike.user.avatar.attached? %>
           <%= cl_image_tag(bike.user.avatar.key, class: "avatar-large mb-2") %>
         <% else %>
           <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
         <% end %>
-        <h5>owner:</h5>
-        <p><%= bike.user.first_name %></p>
+        <div class="fs-5 text-dark"><%= bike.user.first_name %></div>
+        <div class="text-secondary">Owner</div>
       </div>
     </div>
   </div>
