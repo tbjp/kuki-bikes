@@ -9,11 +9,11 @@
     <div class="d-flex">
       <h1>your bikes</h1>
       <%= link_to new_bike_path do %>
-        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-plus text-primary"></i>
       <% end %>
     </div>
     <% @bikes.each do |bike| %>
-      <%= render 'bikes/card', bike: bike %>
+      <%= render 'owner/bookings/owner_bikes_card', bike: bike %>
     <% end %>
   </div>
 </div>

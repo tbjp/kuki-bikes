@@ -23,4 +23,13 @@
       <% end %>
     </div>
   </div>
+  <div class="text-start p-3 text-center">
+    <% if booking.user.avatar.attached? %>
+      <%= cl_image_tag(booking.user.avatar.key, class: "avatar-large mb-2") %>
+    <% else %>
+      <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
+    <% end %>
+    <div class="text-secondary">from</div>
+    <div class="fs-5 text-dark"><%= booking.user.first_name %></div>
+  </div>
 </div>
