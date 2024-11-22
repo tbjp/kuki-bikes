@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :create]
   namespace :owner do
     resources :bookings, only: [:index, :update]
-    resources :bikes, only: [:delete]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
