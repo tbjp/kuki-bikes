@@ -1,23 +1,25 @@
 <%= link_to bike_path(bike) do %>
-  <div class="card my-2 flex-row bg-white border-0 rounded-4 mb-4 shadow-sm justify-content-between">
+  <div class="card flex-row bg-white border-0 rounded-4 mb-4 shadow-sm">
     <% if bike.photo.attached? %>
-      <%= cl_image_tag(bike.photo.key, width: 300, height: 200, crop: :fill, class: "rounded-start-4 ") %>
+      <%= cl_image_tag(bike.photo.key, width: 300, crop: :fill, class: "rounded-start-4 bart3") %>
     <% else %>
       <%= image_tag("https://res.cloudinary.com/dzmlzpvcj/image/upload/v1732161508/kuki-bikes/nknilcmpfeg0rdnkx6jz.png", width: 300, height: 200, crop: :fill, class: "rounded-start-4 ") %>
     <% end %>
-    <div class="col p-3">
-      <h2><%= bike.brand %> <%= bike.model%> <%= bike.year %></h2>
-      <h5 class="text-muted"><%= bike.location %></h5>
-      <span class="fw-semibold">¥<%= bike.price_per_day %></span> per day
-    </div>
-    <div class="flex-col text-end pe-4 my-3">
-      <% if bike.user.avatar.attached? %>
-        <%= cl_image_tag(bike.user.avatar.key, class: "avatar-large mb-2") %>
-      <% else %>
-        <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
-      <% end %>
-      <h5>owner:</h5>
-      <p><%= bike.user.first_name %></p>
+    <div class="d-flex justify-content-between w-100">
+      <div class="p-3">
+        <h3><%= bike.brand %> <%= bike.model%> <%= bike.year %></h3>
+        <h5 class="text-muted"><%= bike.location %></h5>
+        <span class="fw-semibold">¥<%= bike.price_per_day %></span> per day
+      </div>
+      <div class="flex-col text-end pe-4 my-3">
+        <% if bike.user.avatar.attached? %>
+          <%= cl_image_tag(bike.user.avatar.key, class: "avatar-large mb-2") %>
+        <% else %>
+          <%= image_tag "https://res.cloudinary.com/dzmlzpvcj/image/upload/c_thumb,g_face,w_200,h_200/kuki-bikes/b0ritvkfoknzcthowqgo.jpg", class: "avatar-large mb-2", alt: "avatar-large" %>
+        <% end %>
+        <h5>owner:</h5>
+        <p><%= bike.user.first_name %></p>
+      </div>
     </div>
   </div>
 <% end %>
