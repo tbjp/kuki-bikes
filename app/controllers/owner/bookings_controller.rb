@@ -15,11 +15,6 @@ class Owner::BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def destroy
-    @bike = Bike.find(params[:id])
-    @bike.delete
-  end
-
   private
 
   def owner_bookings_params

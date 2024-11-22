@@ -1,10 +1,22 @@
 <div class="container">
-  <div class="my-3">
+  <div class="">
     <h1>My bookings</h1>
   </div>
-  <div class="w-75">
-    <% @bookings.each do |booking| %>
-      <%= render 'booking_card', booking: booking %>
-    <% end %>
-  </div>
+  <% @bookings.each do |booking| %>
+    <div class="d-flex">
+      <div class="w-50">
+        <%= render 'booking_card', booking: booking %>
+      </div>
+      <% bike_marker = [] %>
+      <% @markers.each do |marker| %>
+        <% bike_marker << marker if booking.bike.latitude == marker[:lat] && booking.bike.longitude == marker[:lng] %>
+      <% end %>
+      <div style="width: 50%; height: auto;"
+    class="container border-0 p-0 mb-4 ms-3 rounded-4 shadow-sm"
+    data-controller="map"
+    data-map-markers-value="<%= bike_marker.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  <% end %>
 </div>

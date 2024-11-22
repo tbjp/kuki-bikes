@@ -20,10 +20,10 @@
         <%= b.input :bike_id, as: :hidden, input_html: { value: @bike.id } %>
         <%= b.input :start_date,  as: :string,
             input_html: { data: { controller: "datepicker",
-            booking_price_target: 'start_date', action: 'change->booking-price#update' }, value: Date.today  } %>
+            booking_price_target: 'start_date', action: 'change->booking-price#update' }, value: @start_date  } %>
         <%= b.input :end_date, as: :string,
             input_html: { data: { controller: "datepicker",
-             booking_price_target: 'end_date', action: 'change->booking-price#update' }, value: Date.today + 1  } %>
+             booking_price_target: 'end_date', action: 'change->booking-price#update' }, value: @end_date  } %>
         <%= b.submit 'Book', class: 'btn btn-primary mt-2' %>
       <% end %>
       <div class='mt-3'>

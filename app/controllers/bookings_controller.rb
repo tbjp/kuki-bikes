@@ -16,6 +16,12 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = current_user.bookings.order(id: :desc)
+    @markers = @bookings.map do |booking|
+      {
+        lat: booking.bike.latitude,
+        lng: booking.bike.longitude
+      }
+    end
   end
 
   private

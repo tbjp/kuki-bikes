@@ -19,17 +19,19 @@ class BikesController < ApplicationController
       if @search[:start_date].blank? && @search[:end_date].blank?
         available_bikes = Bike.all
       else
-        @search[:start_date] = Date.today if @search[:start_date].blank?
-        @search[:end_date] = Date.today + 720 if @search[:end_date].blank?
-        sd = Date.parse(@search[:start_date]).strftime("%d %b")
-        ed = Date.parse(@search[:end_date]).strftime("%d %b %Y")
+        @start_date = @search[:start_date]
+        @end_date = @search[:end_date]
+        @start_date = Date.today if @search[:start_date].blank?
+        @end_date = Date.parse(@start_date.to_s) + 14 if @search[:end_date].blank?
+        sd = Date.parse(@start_date.to_s).strftime("%d %b %Y")
+        ed = Date.parse(@end_date.to_s).strftime("%d %b %Y")
         @msg_date = "from #{sd} to #{ed}"
 
 
         available_bikes = Bike.left_joins(:bookings).where(
           'bookings.id IS NULL OR bookings.start_date > ? OR bookings.end_date < ?',
-          @search[:end_date],
-          @search[:start_date]
+          @end_date,
+          @start_date
           )
       end
 
@@ -47,6 +49,10 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @start_date = Date.today if params[:start_date].blank?
+    @end_date = Date.today + 2 if params[:end_date].blank?
     @user = current_user
     @booking = Booking.new
   end
