@@ -1,6 +1,6 @@
-<div class="card flex-row bg-white border-0 rounded-4 mb-4 shadow-sm">
+<div class="card flex-row bg-white border-0 rounded-4 mb-4 shadow-sm position-relative">
   <%= link_to bike_path(booking.bike) do %>
-    <%= cl_image_tag(booking.bike.photo.key, width: 250, crop: :fill, class: "rounded-start-4 bart3") %>
+    <%= cl_image_tag(booking.bike.photo.key, width: 300, crop: :fill, class: "rounded-start-4 bart3") %>
   <% end %>
   <div class="d-flex justify-content-between w-100">
     <div class="p-2 w-100">
@@ -10,7 +10,7 @@
       <span class="fw-semibold"><%= number_to_currency(booking.total_price, locale: :ja, precision: 0, unit: '¥') %></span>
       <p><%= booking.start_date %> to <%= booking.end_date %></p>
       <% if booking.bike.user == current_user && booking.status == "pending" %>
-        <div class="d-flex flex-row justify-content-end m-2">
+        <div class="d-flex flex-row justify-content-end m-2 position-absolute bottom-0 start-0">
           <%= simple_form_for booking, url: owner_booking_path(booking) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'confirmed'} %>
             <%= f.submit 'Confirm', class: 'btn btn-info rounded-4 shadow-sm' %>
