@@ -5,7 +5,8 @@ Kuki Bikes is a web application developed in one week as part of the Le Wagon we
 ![kuki-bikes](https://github.com/user-attachments/assets/66b3842a-e541-4130-93b0-71e0c13c405a)
 
 <br>
-App home: [Kuki Bikes](https://kuki-bikes-48aa9cd0a9c6.herokuapp.com)
+
+[Check it out!](https://kuki-bikes-48aa9cd0a9c6.herokuapp.com)
 
 We've set up example bikes for Tokyo, Osaka, Poznan and Wroclaw. You can also search without any location or date.
    
